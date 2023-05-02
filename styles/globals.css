@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ecf0f3;
+  color: #1f2937;
+  letter-spacing: 0.05em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+li {
+  cursor: pointer;
+}
+
+button {
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(to right, #2294d6, #0d4c71);
+  border-radius: 0.5rem;
+  color: #fff;
+}
