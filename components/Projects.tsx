@@ -54,35 +54,35 @@ import miniprojectImg from '../public/assets/projects/project.png';
 
 const Projects = () => {
   return (
-    <div id="projects" className="w-full">
-      <div className="max-w-[1240px] mx-auto px-2 py-16">
-        <p className="text-xl tracking-widest uppercase text-[#2294D6]">
+    <div id='projects' className='w-full'>
+      <div className='max-w-[1240px] mx-auto px-2 py-16'>
+        <p className='text-xl tracking-widest uppercase text-[#2294D6]'>
           Projects
         </p>
-        <h2 className="py-4">What I&apos;ve been building</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <h2 className='py-4'>What I&apos;ve been building</h2>
+        <div className='grid md:grid-cols-2 gap-8'>
           <Projectitem
-            title="Semester Project: Adventure Trails Hikes"
+            title='Semester Project: Adventure Trails Hikes'
             backgroundImg={hikingImg}
-            projectUrl="/hiking"
+            projectUrl='/hiking'
             description={''}
           />
           <Projectitem
-            title="Exam Blog Website Project"
+            title='Exam Blog Website Project'
             backgroundImg={blogImg}
-            projectUrl="/blog"
+            projectUrl='/blog'
             description={''}
           />
           <Projectitem
-            title="E-commerce Store"
+            title='E-commerce Store'
             backgroundImg={courseImg}
-            projectUrl="/course"
+            projectUrl='/course'
             description={''}
           />
           <Projectitem
-            title="My Travel Web Design & Development Mini Project"
+            title='My Travel Web Design & Development Mini Project'
             backgroundImg={miniprojectImg}
-            projectUrl="/mini"
+            projectUrl='/mini'
             description={''}
           />
         </div>
