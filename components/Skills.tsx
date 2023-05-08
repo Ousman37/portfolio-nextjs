@@ -136,7 +136,7 @@ const Skills = () => {
             <div className='grid grid-cols-2 gap-4 justify-center items-center'>
               <div className='m-auto'>
                 <Image
-                  src='/../public/assets/skills/figma.png'
+                  src='/assets/skills/figma.png'
                   alt='icons8-figma'
                   width={65}
                   height={65}
