@@ -10,7 +10,7 @@ import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formDataObject: Record<string, string> = {};
@@ -19,7 +19,12 @@ const Contact = () => {
       formDataObject[key] = value.toString();
     });
 
-    console.log(formDataObject);
+    // Submit the form data to Netlify
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formDataObject).toString(),
+    });
 
     setFormSubmitted(true);
   };
@@ -87,7 +92,6 @@ const Contact = () => {
                 </div>
               ) : (
                 <form
-                  action=''
                   name='contact'
                   method='POST'
                   data-netlify='true'
@@ -164,7 +168,7 @@ const Contact = () => {
                       rows={10}
                       required></textarea>
                   </div>
-                  <button className='w-full p-4 text-gray-100 mt-4'>
+                  <button className='w-full p-4 text-gray-100 mt-4 bg-blue-500 hover:bg-blue-600 transition-colors duration-300 ease-in rounded'>
                     Send Message
                   </button>
                 </form>
