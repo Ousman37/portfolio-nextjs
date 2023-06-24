@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import Image from 'next/image';
 import courseImg from '../public/assets/contact.jpg';
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa';
@@ -8,6 +8,18 @@ import Link from 'next/link';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 
 const Contact = () => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const formDataObject: Record<string, string> = {};
+
+    Array.from(formData.entries()).forEach(([key, value]) => {
+      formDataObject[key] = value.toString();
+    });
+
+    console.log(formDataObject);
+  };
+
   return (
     <div id='contact' className='w-full lg:h-screen'>
       <div className='max-w-[1240px] m-auto px-2 py-16'>
@@ -65,7 +77,11 @@ const Contact = () => {
           {/* Right */}
           <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
             <div className='p-4'>
-              <form action='contact' method='POST' data-netlify='true'>
+              <form
+                action='contact'
+                method='POST'
+                data-netlify='true'
+                onSubmit={handleSubmit}>
                 <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                   <div className='flex flex-col'>
                     <label htmlFor='name' className='uppercase text-sm py-2'>
@@ -75,6 +91,7 @@ const Contact = () => {
                       type='text'
                       className='border rounded-lg py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent'
                       id='name'
+                      name='name'
                       placeholder='Name'
                       required
                     />
@@ -88,7 +105,8 @@ const Contact = () => {
                     <input
                       type='text'
                       className='border rounded-lg py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent'
-                      id='name'
+                      id='phoneNumber'
+                      name='phoneNumber'
                       placeholder='Phone number'
                       required
                     />
@@ -102,7 +120,8 @@ const Contact = () => {
                   <input
                     type='email'
                     className='border rounded-lg py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent'
-                    id='name'
+                    id='email'
+                    name='email'
                     placeholder='Email'
                     required
                   />
@@ -115,7 +134,8 @@ const Contact = () => {
                   <input
                     type='text'
                     className='border rounded-lg py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent'
-                    id='name'
+                    id='subject'
+                    name='subject'
                     placeholder='Subject'
                     required
                   />
@@ -134,7 +154,6 @@ const Contact = () => {
                     required></textarea>
                 </div>
                 <button className='w-full p-4 text-gray-100 mt-4'>
-                  {' '}
                   Send Message
                 </button>
               </form>
@@ -157,3 +176,4 @@ const Contact = () => {
 };
 
 export default Contact;
+``;
