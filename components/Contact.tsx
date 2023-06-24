@@ -78,10 +78,11 @@ const Contact = () => {
           <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
             <div className='p-4'>
               <form
-                action='contact'
+                name='contact'
                 method='POST'
                 data-netlify='true'
                 onSubmit={handleSubmit}>
+                <input type='hidden' name='form-name' value='contact' />
                 <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                   <div className='flex flex-col'>
                     <label htmlFor='name' className='uppercase text-sm py-2'>
@@ -176,4 +177,3 @@ const Contact = () => {
 };
 
 export default Contact;
-``;
